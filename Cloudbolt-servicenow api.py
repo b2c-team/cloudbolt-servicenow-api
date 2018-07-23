@@ -20,8 +20,6 @@ def run(job, logger=None):
     conn = ConnectionInfo.objects.get(name='servicenow')
     assert isinstance(conn, ConnectionInfo)
 
-    conn = ConnectionInfo.objects.get(name='https://cloudbolt-rws.kill-9.nl/orders')
-
     server = job.server_set.last()  # prov job only has one server in set
     assert isinstance(server, Server)
 
