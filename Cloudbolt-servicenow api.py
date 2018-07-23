@@ -7,7 +7,7 @@ import requests
 from infrastructure.models import Server
 from jobs.models import Job
 from utilities.logger import get_thread_logger
-from utilities.models import ConnectionInfo
+from utilities.models import connectionInfo
 
 
 def run(job, logger=None):
@@ -17,7 +17,7 @@ def run(job, logger=None):
     if job.status == 'FAILURE':
         return "", "", ""
 
-    conn = ConnectionInfo.objects.get(name='dev51482')
+    conn = connectionInfo.objects.get(name='dev51482')
     assert isinstance(conn, ConnectionInfo)
 
     servicenow_url = "{https}://{dev51482.service-now.com/}:{443}".format(conn.protocol, conn.ip, conn.port)
