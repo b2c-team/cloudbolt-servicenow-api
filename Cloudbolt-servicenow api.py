@@ -17,10 +17,10 @@ def run(job, logger=None):
     if job.status == 'FAILURE':
         return "", "", ""
 
-    conn = ConnectionInfo.objects.get(name='https://cloudbolt-rws.kill-9.nl/orders')
+    conn = ConnectionInfo.objects.get(name='servicenow')
     assert isinstance(conn, ConnectionInfo)
 
-    servicenow_url = "{https}://{dev51482.service-now.com/}:{443}".format(conn.protocol, conn.ip, conn.port)
+    conn = ConnectionInfo.objects.get(name='https://cloudbolt-rws.kill-9.nl/orders')
 
     server = job.server_set.last()  # prov job only has one server in set
     assert isinstance(server, Server)
