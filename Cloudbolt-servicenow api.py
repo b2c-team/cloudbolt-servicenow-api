@@ -17,7 +17,7 @@ def run(job, logger=None):
     if job.status == 'FAILURE':
         return "", "", ""
 
-    conn = ConnectionInfo.objects.get(name='connect')
+    """conn = ConnectionInfo.objects.get(name='connect')"""
     assert isinstance(conn, ConnectionInfo)
 
     servicenow_url = "{https}://{dev51482.service-now.com/}:{443}".format(conn.protocol, conn.ip, conn.port)
