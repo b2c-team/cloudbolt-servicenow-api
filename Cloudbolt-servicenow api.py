@@ -16,7 +16,7 @@ def run(job, logger=None):
 
     if job.status == 'FAILURE':
         return "", "", ""
-    
+
     conn = ConnectionInfo.objects.get(name='servicenow')
     assert isinstance(conn, ConnectionInfo)
 
