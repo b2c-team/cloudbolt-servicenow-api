@@ -12,10 +12,7 @@ from utilities.models import ConnectionInfo
 
 def run(job, logger=None):
     
-    print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-    
-    if not logger:
-        logger = get_thread_logger(__name__)
+    logger = get_thread_logger(__name__)
 
     if job.status == 'FAILURE':
         return "", "", ""
